@@ -68,11 +68,6 @@ public class SecurityConfig {
                                 "/assets/**",
                                 "/static/**",
                                 "/static-assets/**",
-                                "/**/*.js",
-                                "/**/*.css",
-                                "/**/*.ico",
-                                "/**/*.png",
-                                "/**/*.svg",
                                 "/favicon.ico",
                                 "/vite.svg",
                                 "/error"
