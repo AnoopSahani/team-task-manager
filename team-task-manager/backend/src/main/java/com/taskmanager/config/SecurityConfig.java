@@ -67,6 +67,12 @@ public class SecurityConfig {
                                 "/index.html",
                                 "/assets/**",
                                 "/static/**",
+                                "/static-assets/**",
+                                "/**/*.js",
+                                "/**/*.css",
+                                "/**/*.ico",
+                                "/**/*.png",
+                                "/**/*.svg",
                                 "/favicon.ico",
                                 "/vite.svg",
                                 "/error"
@@ -74,7 +80,10 @@ public class SecurityConfig {
                         .requestMatchers("/api/**").authenticated()
                         .anyRequest().permitAll()
                 )
-                .headers(h -> h.frameOptions(f -> f.disable()))
+                .headers(h -> h
+                        .frameOptions(f -> f.disable())
+                        .contentTypeOptions(c -> c.disable())
+                )
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
